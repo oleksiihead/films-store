@@ -15,17 +15,17 @@ node('workers'){
             'Integration Tests': {
                 sh "docker run --rm ${imageName}-test npm run test"
             },
-//             'Coverage Reports': {
-//                 sh "docker run --rm -v $PWD/coverage:/app/coverage ${imageName}-test npm run coverage-html"
-//                 publishHTML (target: [
-//                     allowMissing: false,
-//                     alwaysLinkToLastBuild: false,
-//                     keepAll: true,
-//                     reportDir: "$PWD/coverage",
-//                     reportFiles: "index.html",
-//                     reportName: "Coverage Report"
-//                 ])
-//             }
+            'Coverage Reports': {
+                sh "docker run --rm -v $PWD/coverage:/app/coverage ${imageName}-test npm run coverage-html"
+                publishHTML (target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: "$PWD/coverage",
+                    reportFiles: "index.html",
+                    reportName: "Coverage Report"
+                ])
+            }
         )
     }
 
