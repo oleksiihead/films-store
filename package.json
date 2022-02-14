@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "mocha ./test/*.spec.js",
-    "lint": "eslint .",
+    "lint": "eslint **/*.js",
     "coverage-text": "nyc --reporter=text mocha",
     "coverage-html": "nyc --reporter=html mocha"
   },
