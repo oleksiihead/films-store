@@ -2,7 +2,7 @@ def imageName = 'oleksiihead/films-store'
 
 node('workers') {
     stage('Checkout SCM'){
-        sheckout scm
+        checkout scm
     }
 
     def imageTest = docker.build("${imageName}-test", "-f Dockerfile.test .")
