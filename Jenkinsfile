@@ -9,8 +9,7 @@ node('workers') {
 
     stage('Quality Tests'){
         imageTest.inside(){
-            //sh 'npm run lint'
-            sh "docker run --rm ${imageName}-test npm run lint"
+            sh 'npm run lint'
         }
     }
 }
