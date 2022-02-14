@@ -9,7 +9,7 @@ node('workers') {
 
     stage('Quality Tests'){
         imageTest.inside{
-            sh 'npm run test'
+            sh 'npm run lint'
         }
     }
 }
