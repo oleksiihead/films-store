@@ -1,4 +1,5 @@
-def imageName = 'mlabouardy/movies-store'
+def imageName = "oleksiihead/films-store:${BUILD_ID}"
+//def registry = 'https://registry.smiichuk.click'
 
 node('workers'){
     stage('Checkout'){
@@ -29,6 +30,19 @@ node('workers'){
         )
     }
 
+    stage('Build'){
+        docker.build(imageName)
+    }
+
+//     stage('Push'){
+//         docker.withRegistry(registry, 'registry') {
+//             docker.image(imageName).push(commitID())
+//
+//             if (env.BRANCH_NAME == 'develop') {
+//                 docker.image(imageName).push('develop')
+//             }
+//         }
+//     }
 }
 
 def commitID() {
